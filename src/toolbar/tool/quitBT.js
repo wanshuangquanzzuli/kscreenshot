@@ -20,7 +20,7 @@ export default function quitBT (me) {
     quitBT.addEventListener('click', function () {
         me.isEdit = true
         
-        endAndClear(me)
+        endAndClear(me,'quit')
     })
 
     return quitBT

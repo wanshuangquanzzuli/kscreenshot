@@ -1,6 +1,6 @@
 import { remove, removeClass, typeChecking } from '../util'
 
-export default function endAndClear (me) {
+export default function endAndClear (me,type) {
     removeClass(document.body, 'kssBody')
   
     me.kss && remove(me.kss)
@@ -25,5 +25,5 @@ export default function endAndClear (me) {
     }, 0)
     
     document.removeEventListener('mouseup', me.cancelDrawingStatus)
-    typeChecking(me.endCB === '[object Function]') && me.endCB()
+    typeChecking(me.endCB === '[object Function]') && me.endCB(type)
 }

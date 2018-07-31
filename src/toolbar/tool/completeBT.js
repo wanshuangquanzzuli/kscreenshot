@@ -21,7 +21,7 @@ export default function completeBT (me) {
         
         copy(me, me.snapshootList[me.snapshootList.length - 1])
         me.needDownload === true && (await download(me))
-        endAndClear(me)
+        endAndClear(me,'complete')
     })
 
     return completeBT

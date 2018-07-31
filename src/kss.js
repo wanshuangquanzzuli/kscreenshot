@@ -243,7 +243,7 @@ let kss = (function () {
                         document.removeEventListener('contextmenu', that.preventContextMenu)
                     }, 0)
                     
-                    endAndClear(that)
+                    endAndClear(that,'cancelDraw')
                     return
                 }
                 remove(that.kssScreenShotWrapper)
@@ -264,7 +264,7 @@ let kss = (function () {
             this.start()
         }
         this.endScreenShot = () => {
-            endAndClear(this)
+            endAndClear(this,'end')
         }
 
         this.init(options.key, options.immediately)
@@ -325,7 +325,7 @@ let kss = (function () {
 
         function endScreenShot (e) {
             if (e.keyCode === 27) {
-                endAndClear(that)
+                endAndClear(that,'end')
                 document.removeEventListener('keydown', endScreenShot)
             }
         }

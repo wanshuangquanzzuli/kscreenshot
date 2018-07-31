@@ -1,7 +1,16 @@
 import {css, remove, typeChecking} from '../util'
 
 export default function copy (me, url) {
-    let imgWrapper = document.createElement('span')
+    //设置本地存储
+    if (typeChecking(me.copyPath) === '[object Function]') {
+        const storage = me.copyPath()
+        localStorage.setItem(storage,url);
+        console.log("set localstorage: " +storage);
+    } else {
+        localStorage.copyImgBase64=url;
+        console.log("default localstorage:copyImgBase64")
+    }
+    /*let imgWrapper = document.createElement('span')
     css(imgWrapper, {
         opacity: '0'
     })
@@ -35,5 +44,5 @@ export default function copy (me, url) {
         document.execCommand('Copy')
   
         remove(imgWrapper)
-    }, 0)
+    }, 0)*/
 }
