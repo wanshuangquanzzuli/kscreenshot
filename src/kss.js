@@ -295,6 +295,11 @@ let kss = (function () {
         }     
     }
 
+    kss.prototype.startWork = function () {
+        const that = this
+        that.start()
+        that.end()
+    }
     kss.prototype.start = function () {
         const that = this
         if (that.isScreenshot) {
